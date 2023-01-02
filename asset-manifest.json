@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/firxt/static/css/main.1086ff9a.css",
+    "main.js": "/firxt/static/js/main.d3c616f7.js",
+    "static/js/787.21c3f140.chunk.js": "/firxt/static/js/787.21c3f140.chunk.js",
+    "static/media/bg15.png": "/firxt/static/media/bg15.b11ae20c9347d59f4b5c.png",
+    "static/media/bg19.png": "/firxt/static/media/bg19.0857c1db31461bb46f1d.png",
+    "static/media/bg20.png": "/firxt/static/media/bg20.e84e9cc461ad97209616.png",
+    "static/media/bg17.png": "/firxt/static/media/bg17.6790d213bfd93ff72a24.png",
+    "static/media/bg22.png": "/firxt/static/media/bg22.2051f6fde2c6d942ab6e.png",
+    "static/media/bg23.png": "/firxt/static/media/bg23.1d5e061d01a622f7b850.png",
+    "static/media/giphy.gif": "/firxt/static/media/giphy.496804276bb6914944bf.gif",
+    "static/media/bg18.png": "/firxt/static/media/bg18.7fe45cfcee5117345941.png",
+    "index.html": "/firxt/index.html",
+    "main.1086ff9a.css.map": "/firxt/static/css/main.1086ff9a.css.map",
+    "main.d3c616f7.js.map": "/firxt/static/js/main.d3c616f7.js.map",
+    "787.21c3f140.chunk.js.map": "/firxt/static/js/787.21c3f140.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1086ff9a.css",
+    "static/js/main.d3c616f7.js"
+  ]
+}
