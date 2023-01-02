@@ -1,9 +1,17 @@
 
+
+import { Link } from 'react-router-dom';
+
+
 import './home.css';
 
 import { FaHashtag,  } from 'react-icons/fa';
 import {ImEarth} from 'react-icons/im';
 import {BsUiChecksGrid} from 'react-icons/bs';
+
+
+import categories from "../categories.json";
+
 
 
 
@@ -21,8 +29,14 @@ function Explore() {
 
   ]
 
-  const categories = ["Automobiles", "Phones", "Movies", "Music", "Books", "Celebrity", "Sports", "Finance", "Crypto", "Tech", "Food"]
-  const tags = ["twitter", "lagos", "election", "workout", "ronaldo", "burnaboy", "japa", "drake", "sales", "newyear"]
+  // const categories = ["Automobiles", "Phones", "Movies", "Music", "Books", "Celebrity", "Sports", "Finance", "Crypto", "Tech", "Food"]
+  // const tags = ["twitter", "lagos", "election", "workout", "ronaldo", "burnaboy", "japa", "drake", "sales", "newyear"]
+
+
+  const linkStyle = {
+    textDecoration: "none",
+    color: "unset"
+  }
 
   return (
     <div className="Explore">
@@ -32,9 +46,9 @@ function Explore() {
       <h2><BsUiChecksGrid/> Popular Categories</h2> 
       <div className="xplore-cats">
         
-        {categories.map(categoryy => {
+        {categories.categories.map(categoryy => {
           return (
-            <button>{categoryy}</button>
+            <button> <Link to="/" style={linkStyle}>{categoryy}</Link></button>
           )
         })}
 
@@ -44,9 +58,9 @@ function Explore() {
       <h2><FaHashtag/> Tags</h2> 
       <div className="xplore-cats">
         
-        {tags.map(tag => {
+        {categories.tags.map(tag => {
           return (
-            <button>#{tag}</button>
+            <button> <Link to="/" style={linkStyle}>#{tag}</Link></button>
           )
         })}
 

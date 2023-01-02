@@ -1,4 +1,8 @@
 
+
+import { Link } from 'react-router-dom';
+
+
 import './home.css';
 
 import { FaExclamationCircle, FaChevronRight, FaClock, FaCalendarAlt, FaBook, FaRegThumbsUp, FaRegThumbsDown, FaBookmark } from 'react-icons/fa';
@@ -19,6 +23,11 @@ function Latest() {
 
   ]
 
+  const linkStyle = {
+    textDecoration: "none",
+    color: "unset"
+  }
+
   return (
     <div className="Latest">
       <h1><FaClock style={{verticalAlign: "-4.5px"}}/> LATEST POSTS</h1>
@@ -29,6 +38,7 @@ function Latest() {
         {posts.map(eachPost => {
           return (
             <div className="post">
+              <Link to="/blog" style={linkStyle}>
           <h3>{eachPost.title}</h3> <br />
           <p>
             <FaBook /> {eachPost.post.substring(0,200)}...</p>
@@ -52,13 +62,14 @@ function Latest() {
             <p><FaExclamationCircle /></p>
           </div>
           </div>
+          </Link>
         </div>
           )
         })}
       </div>
 
       <button className="more">
-        Latest Posts <FaChevronRight style={{verticalAlign: "-2.5px", marginLeft: "10px"}}/>
+      <Link to="/" style={linkStyle}> Latest Posts <FaChevronRight style={{verticalAlign: "-2.5px", marginLeft: "10px"}}/> </Link>
       </button> <br /> <br /> <br />
 
       <hr></hr>

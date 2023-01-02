@@ -3,16 +3,16 @@
 import { Link } from 'react-router-dom';
 
 
-import './home.css';
+import './reader.css';
 
-import { FaChevronRight, FaBolt, FaClock, FaCalendarAlt, FaExclamationCircle, FaBook, FaRegThumbsUp, FaRegThumbsDown, FaBookmark } from 'react-icons/fa';
-import {ImFire} from 'react-icons/im';
-
-
-import dp from "./assets/bg17.png"
+import { FaExclamationCircle, FaChevronRight, FaClock, FaCalendarAlt, FaBook, FaRegThumbsUp, FaRegThumbsDown, FaBookmark } from 'react-icons/fa';
 
 
-function Trending() {
+
+import dp from "../Home/assets/bg17.png";
+
+
+function Latest() {
 
 
   const posts = [
@@ -30,7 +30,7 @@ function Trending() {
 
   return (
     <div className="Latest">
-      <h1><ImFire /> TRENDING POSTS</h1>
+      <h1><FaClock style={{verticalAlign: "-4.5px"}}/> LATEST POSTS</h1>
 
       <div className="posts">
 
@@ -38,7 +38,7 @@ function Trending() {
         {posts.map(eachPost => {
           return (
             <div className="post">
-              <Link to="/blog" style={linkStyle}>
+              <Link to="/" style={linkStyle}>
           <h3>{eachPost.title}</h3> <br />
           <p>
             <FaBook /> {eachPost.post.substring(0,200)}...</p>
@@ -69,10 +69,12 @@ function Trending() {
       </div>
 
       <button className="more">
-      <Link to="/" style={linkStyle}>Trending Posts <FaChevronRight style={{verticalAlign: "-2.5px", marginLeft: "10px"}}/> </Link>
-      </button>
+      <Link to="/" style={linkStyle}> Latest Posts <FaChevronRight style={{verticalAlign: "-2.5px", marginLeft: "10px"}}/> </Link>
+      </button> <br /> <br /> <br />
+
+      <hr></hr>
     </div>
   );
 }
 
-export default Trending;
+export default Latest;

@@ -3,6 +3,8 @@ import '../layout.css';
 
 import { useState } from 'react';
 
+import { Link } from 'react-router-dom';
+
 
 import { FaBolt, FaChevronDown, FaSearch, FaPenFancy, FaClock } from 'react-icons/fa';
 import {ImFire} from 'react-icons/im';
@@ -28,14 +30,10 @@ function Navigation() {
     }
   })
 
-  // window.onscroll = () => {
-  //   if (window.pageYOffset > 10) {
-  //     setWhitenav(true)
-  //   } else {
-  //     setWhitenav(false)
-  //   }
-  // }
-
+const linkStyle = {
+  textDecoration: "none",
+  color: "unset"
+}
 
   return (
 
@@ -44,33 +42,33 @@ function Navigation() {
     style={{backgroundColor: whitenav? "white" : "",
     boxShadow: whitenav? "0px 2px 13px grey" : ""}}
     >
-      <h2 className='logo'><FaBolt />Firxt</h2>
+     <Link to="/" style={linkStyle}><h2 className='logo'><FaBolt />Firxt</h2></Link> 
 
       <nav>
-        <button className='write'><span>Post</span><FaPenFancy/></button>
+      <button className='write'><Link to="/write" style={linkStyle}><span>Post</span><FaPenFancy/></Link></button>
         <ul>
 
 
-          <li><FaClock/> Latest</li>
-          <li><ImFire/> Hottest</li>
-          <li><BsUiChecksGrid/> Categories 
+          <li><FaClock/> <Link to="/" style={linkStyle}>Latest</Link></li>
+          <li><ImFire/> <Link to="/" style={linkStyle}>Hottest</Link></li>
+          <li><BsUiChecksGrid/> <Link to="/" style={linkStyle}>Categories</Link> 
             <span> <FaChevronDown /></span>
             <div className="categories">
               <ul>
-                <li>Sports</li>
-                <li>Food</li>
-                <li>Romance</li>
-                <li>Music</li>
-                <li>Movies</li>
-                <li>more...</li>
+                <li><Link to="/" style={linkStyle}>Sports</Link></li>
+                <li><Link to="/" style={linkStyle}>Food</Link></li>
+                <li><Link to="/" style={linkStyle}>Romance</Link></li>
+                <li><Link to="/" style={linkStyle}>Music</Link></li>
+                <li><Link to="/" style={linkStyle}>Movies</Link></li>
+                <li><Link to="/" style={linkStyle}>more...</Link></li>
               </ul>
             </div>
             </li>
 
         </ul>
         <div className="auth">
-          <button>Login</button>
-          <button>Sign Up</button>
+        <Link to="/login" style={linkStyle}><button>Login</button></Link>
+        <Link to="/register" style={linkStyle}><button>Sign Up</button></Link>
         </div>
         <div className="search">
           <input type="search" name="" id="" placeholder='Search...' />
@@ -95,26 +93,14 @@ function Navigation() {
         <ul>
 
 
-          <li>Latest</li>
-          <li>Hottest</li>
-          <li>Categories 
-            <span> <FaChevronDown /></span>
-            <div className="categories">
-              <ul>
-                <li>Sports</li>
-                <li>Food</li>
-                <li>Romance</li>
-                <li>Music</li>
-                <li>Movies</li>
-                <li>more...</li>
-              </ul>
-            </div>
-            </li>
+          <li><Link to="/" style={linkStyle}>Latest</Link></li>
+          <li><Link to="/" style={linkStyle}>Hottest</Link></li>
+          <li><Link to="/" style={linkStyle}>Categories</Link></li>
 
         </ul>
         <div>
-          <button>Login</button> <br/>
-          <button>Sign Up</button>
+        <Link to="/login" style={linkStyle}><button>Login</button></Link> <br/>
+          <Link to="/register" style={linkStyle}><button>Sign Up</button></Link>
         </div>
       
     </div>
