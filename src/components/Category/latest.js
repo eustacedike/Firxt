@@ -3,13 +3,13 @@
 import { Link } from 'react-router-dom';
 
 
-import './reader.css';
+import './category.css';
 
 import { FaExclamationCircle, FaChevronRight, FaClock, FaCalendarAlt, FaBook, FaRegThumbsUp, FaRegThumbsDown, FaBookmark } from 'react-icons/fa';
 
 
 
-import dp from "../Home/assets/bg17.png";
+import dp from "./assets/bg17.png"
 
 
 function Latest() {
@@ -30,7 +30,6 @@ function Latest() {
 
   return (
     <div className="Latest">
-      <h1><FaClock style={{verticalAlign: "-4.5px"}}/> LATEST POSTS</h1>
 
       <div className="posts">
 
@@ -38,7 +37,7 @@ function Latest() {
         {posts.map(eachPost => {
           return (
             <div className="post">
-              <Link to="/" style={linkStyle}>
+              <Link to="/blog" style={linkStyle}>
           <h3>{eachPost.title}</h3> <br />
           <p>
             <FaBook /> {eachPost.post.substring(0,200)}...</p>
@@ -68,9 +67,7 @@ function Latest() {
         })}
       </div>
 
-      <button className="more">
-      <Link to="/" style={linkStyle}> Latest Posts <FaChevronRight style={{verticalAlign: "-2.5px", marginLeft: "10px"}}/> </Link>
-      </button> <br /> <br /> <br />
+      <br /> <br /> <br />
 
       <hr></hr>
     </div>

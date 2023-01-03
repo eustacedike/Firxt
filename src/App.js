@@ -9,8 +9,14 @@ import Post from "./components/Post/post";
 import Register from "./components/auth/register";
 import Login from "./components/auth/login";
 import Reader from "./components/Reader/reader";
+import AllPosts from "./components/AllPosts/allposts";
+import Category from "./components/Category/category";
 
 import './App.css';
+
+import { FaClock } from "react-icons/fa";
+import {ImFire} from 'react-icons/im';
+
 
 function App() {
   return (
@@ -23,7 +29,10 @@ function App() {
           <Route path="write" element={<Post />} />
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
-          <Route path="blog" element={<Reader />} />
+          <Route path="blog" element={<Reader/>} />
+          <Route path="categories" element={<Category/>} />
+          <Route path="blogposts" element={<AllPosts icon={<FaClock/>} latestOrtrending="RECENT POSTS" sub="Check out the most recent blogs on Firxt.." />} />
+          <Route path="trending" element={<AllPosts icon={<ImFire/>} latestOrtrending="TRENDING NOW" sub="Hot topics right now..." />} />
           
           {/* <Route path="*" element={<NoPage />} /> */}
         </Route>

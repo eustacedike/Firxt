@@ -114,7 +114,7 @@
 }
 
 .post:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
     background-color: rgb(255, 255, 255, 0.65);
 }
 
@@ -192,8 +192,8 @@
     right: 5vw;
     width: 35%;
     transition: 0s;
-
-    padding: 34px 0px;
+    /* border: 1px solid red; */
+    padding: 5vw 0px;
 }
 
 .xplore h2 {
