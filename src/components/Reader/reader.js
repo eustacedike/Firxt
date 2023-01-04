@@ -67,6 +67,8 @@ function Reader() {
                 </div>
             </div>
 
+            <br />
+            <hr />
             <br /> <br />
 
             <form action="">

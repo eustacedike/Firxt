@@ -2,13 +2,25 @@
 
 import { useState, useRef } from 'react';
 
+import gt from "../Images/topics/messi.png";
+
 
 import './category.css';
 
 import Latest from './latest';
 import Explore from './explore';
 
-function Category() {
+
+import sportPic from "../Images/topics/messi.png";
+import motorPic from "../Images/topics/orange.png";
+import kidPic from "../Images/topics/baby.png";
+import moviePic from "../Images/topics/rock.png";
+
+
+function Category(props) {
+
+
+const TopicImages = [motorPic, motorPic, moviePic, sportPic,  motorPic, sportPic, moviePic]
 
 
   const [xplore, setXplore] = useState(false);
@@ -26,15 +38,17 @@ function Category() {
 
   return (
     <div className="Categx">
-      <div className="big-hero" on>
-        <div className="hero">
+      <div className="big-hero">
+        <div className="hero"
+        style={{background: `url(${TopicImages[props.id-1]})`}}
+        >
 
           <div className="hero1">
             <h1>
-              SPORTS
+              {props.desc}
             </h1>
             <p>
-              Soccer, Basketball, Tennis, Baseball stories; and lots more!!!
+              {props.sub}
             </p>
 
 

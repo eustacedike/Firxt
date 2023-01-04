@@ -38,19 +38,33 @@ function Explore() {
     color: "unset"
   }
 
+  console.log(categories.cats)
+
   return (
     <div className="Explore">
+      {/* <h1>{categories.cats.Automobiles.name}</h1> */}
       
+    {/* {
+      Object.keys(categories.cats).map(key =>
+      <h1>{categories.cats[key].name}</h1>)
+    }
+       */}
       <h1><ImEarth style={{verticalAlign: "-4.5px"}}/> EXPLORE</h1>
 
       <h2><BsUiChecksGrid/> Popular Categories</h2> 
       <div className="xplore-cats">
+
+      {
+      Object.keys(categories.cats).map(key =>
+        <button> <Link onClick={()=>{window.scroll(0,0)}} to={`/blog/${categories.cats[key].name}`} style={linkStyle}>{categories.cats[key].name}</Link></button>)
+    }
+      
         
-        {categories.categories.map(categoryy => {
+        {/* {categories.categories.map(categoryy => {
           return (
             <button> <Link to="/" style={linkStyle}>{categoryy}</Link></button>
           )
-        })}
+        })} */}
 
         
       </div>

@@ -1,4 +1,20 @@
 {
     "categories": ["Automobiles", "Phones", "Movies", "Music", "Books", "Celebrity", "Sports", "Finance", "Crypto", "Tech", "Food"],
-    "tags": ["twitter", "lagos", "election", "workout", "ronaldo", "burnaboy", "japa", "drake", "sales", "newyear"]
+    "tags": ["twitter", "lagos", "election", "workout", "ronaldo", "burnaboy", "japa", "drake", "sales", "newyear"],
+    "cats":{
+    "Automobiles":
+    {"id": 1, "name": "Automobiles", "desc":"Everything cars, motorbikes, vehicles, luxury cars"},
+    "Phones":
+    {"id": 2, "name": "Phones", "desc":"Discussions on latest mobile phone trends"},
+    "Movies":
+    {"id": 3, "name": "Movies", "desc":"Discussions on latest mobile phone trends"},
+    "Music":
+    {"id": 4, "name": "Music", "desc":"Discussions on latest mobile phone trends"},
+    "Books":
+    {"id": 5, "name": "Books", "desc":"Discussions on latest mobile phone trends"},
+    "Sports":
+    {"id": 6, "name": "Sports", "desc":"Soccer, Basketball, Tennis, Baseball stories; and lots more!!!"},
+    "Finance":
+    {"id": 7, "name": "Finance", "desc":"Discussions on latest mobile phone trends"}
+    }
 }
