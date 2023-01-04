@@ -15,8 +15,8 @@ import categories from "../categories.json";
 
 
 
-import dp from "./assets/bg17.png";
-import dp2 from "./assets/messi.png";
+import dp from "../Images/topics/baby.png";
+import dp2 from "../Images/topics/messi.png";
 
 
 function Explore() {
@@ -39,6 +39,9 @@ function Explore() {
     color: "unset"
   }
 
+  const sliced = Object.fromEntries(
+    Object.entries(categories.cats).slice(0, 12));
+
   return (
     <div className="Explore">
 
@@ -58,13 +61,14 @@ function Explore() {
       <h2><BsUiChecksGrid /> Other Categories</h2>
       <div className="xplore-cats">
 
-        {categories.categories.map(categoryy => {
-          return (
-            <button> <Link to="/" style={linkStyle}>{categoryy}</Link></button>
-          )
-        })}
+      {
+      Object.keys(sliced).map(key =>
+        <button> <Link onClick={()=>{window.scroll(0,0)}} to={`/blog/${categories.cats[key].name}`} style={linkStyle}>{categories.cats[key].name}</Link></button>)
+    }
 
-      </div>
+      </div> <br/>
+<Link to="/categories">View all categories</Link>
+
 
 
 

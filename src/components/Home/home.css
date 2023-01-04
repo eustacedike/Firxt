@@ -212,7 +212,7 @@
 }
 
 .more:hover {
-    transform: scale(1.1);
+    transform: scale(1.02);
     color: var(--my-black);
     background-color: white;
     border: 1px solid var(--primary);
@@ -297,7 +297,8 @@ box-shadow: 2px 2px 5px 1px grey;
 
     .post {
 
-        box-shadow: 1px 1px 10px 2px white;
+        box-shadow: 2px 2px 11px 2px rgb(0,0,0,0.3);
+
 
     }
 }

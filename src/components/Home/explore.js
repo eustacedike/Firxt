@@ -38,7 +38,8 @@ function Explore() {
     color: "unset"
   }
 
-  console.log(categories.cats)
+  const sliced = Object.fromEntries(
+    Object.entries(categories.cats).slice(0, 15));
 
   return (
     <div className="Explore">
@@ -55,7 +56,7 @@ function Explore() {
       <div className="xplore-cats">
 
       {
-      Object.keys(categories.cats).map(key =>
+      Object.keys(sliced).map(key =>
         <button> <Link onClick={()=>{window.scroll(0,0)}} to={`/blog/${categories.cats[key].name}`} style={linkStyle}>{categories.cats[key].name}</Link></button>)
     }
       
@@ -68,7 +69,7 @@ function Explore() {
 
         
       </div>
-<Link>Explore all categories</Link>
+<Link to="/categories">Explore all categories</Link>
       <h2><FaHashtag/> Tags</h2> 
       <div className="xplore-cats">
         
@@ -82,7 +83,7 @@ function Explore() {
         
 
       </div>
-      <Link>check out more tags</Link>
+      <Link to="/categories">check out more tags</Link>
 </div>
     
   );

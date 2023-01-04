@@ -9,7 +9,7 @@ import { FaExclamationCircle, FaChevronRight, FaClock, FaCalendarAlt, FaBook, Fa
 
 
 
-import dp from "./assets/bg17.png"
+import dp from "../Images/topics/baby.png"
 
 
 function Latest() {

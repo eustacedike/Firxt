@@ -69,7 +69,7 @@ function Trending() {
       </div>
 
       <button className="more">
-      <Link to="/" style={linkStyle}>Trending Posts <FaChevronRight style={{verticalAlign: "-2.5px", marginLeft: "10px"}}/> </Link>
+      <Link to="/trending" style={linkStyle}>Trending Posts <FaChevronRight style={{verticalAlign: "-2.5px", marginLeft: "10px"}}/> </Link>
       </button>
     </div>
   );

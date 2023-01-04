@@ -5,6 +5,7 @@ import { Outlet } from "react-router-dom";
 
 
 import Navigation from "./Header/Navigation";
+import Footer from "./Footer/footer";
 
 
 
@@ -15,7 +16,7 @@ function Layout() {
       <Outlet/>
       
 
-      {/* <Footer/> */}
+      <Footer/>
     </div>
   );
 }

@@ -26,9 +26,9 @@ function Hero() {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere eos quasi odit, quo earum natus nisi iste.
         </p>
 
-        <button>
-        <Link style={linkStyle} to="/write"> Write a Blog</Link>
-        </button></div>
+        
+        <Link style={linkStyle} to="/write"><button> Write a Blog</button></Link>
+        </div>
       </div>
     
   );

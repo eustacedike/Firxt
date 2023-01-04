@@ -69,7 +69,7 @@ function Latest() {
       </div>
 
       <button className="more">
-      <Link to="/" style={linkStyle}> Latest Posts <FaChevronRight style={{verticalAlign: "-2.5px", marginLeft: "10px"}}/> </Link>
+      <Link to="/blogposts" style={linkStyle}> Latest Posts <FaChevronRight style={{verticalAlign: "-2.5px", marginLeft: "10px"}}/> </Link>
       </button> <br /> <br /> <br />
 
       <hr></hr>
