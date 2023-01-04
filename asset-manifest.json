@@ -1,24 +1,27 @@
 {
   "files": {
-    "main.css": "/Firxt/static/css/main.97fb3016.css",
-    "main.js": "/Firxt/static/js/main.b2a3c9c7.js",
+    "main.css": "/Firxt/static/css/main.0353044c.css",
+    "main.js": "/Firxt/static/js/main.630450b4.js",
     "static/js/787.21c3f140.chunk.js": "/Firxt/static/js/787.21c3f140.chunk.js",
     "static/media/bg15.png": "/Firxt/static/media/bg15.b11ae20c9347d59f4b5c.png",
     "static/media/bg19.png": "/Firxt/static/media/bg19.0857c1db31461bb46f1d.png",
+    "static/media/rock.png": "/Firxt/static/media/rock.0857c1db31461bb46f1d.png",
     "static/media/messi.png": "/Firxt/static/media/messi.1635a34851d71f52d62d.png",
     "static/media/bg20.png": "/Firxt/static/media/bg20.e84e9cc461ad97209616.png",
+    "static/media/baby.png": "/Firxt/static/media/baby.6790d213bfd93ff72a24.png",
     "static/media/bg17.png": "/Firxt/static/media/bg17.6790d213bfd93ff72a24.png",
     "static/media/bg22.png": "/Firxt/static/media/bg22.2051f6fde2c6d942ab6e.png",
     "static/media/bg23.png": "/Firxt/static/media/bg23.1d5e061d01a622f7b850.png",
     "static/media/giphy.gif": "/Firxt/static/media/giphy.496804276bb6914944bf.gif",
+    "static/media/orange.png": "/Firxt/static/media/orange.4126d8fce1d9bc4dfa1a.png",
     "static/media/bg18.png": "/Firxt/static/media/bg18.7fe45cfcee5117345941.png",
     "index.html": "/Firxt/index.html",
-    "main.97fb3016.css.map": "/Firxt/static/css/main.97fb3016.css.map",
-    "main.b2a3c9c7.js.map": "/Firxt/static/js/main.b2a3c9c7.js.map",
+    "main.0353044c.css.map": "/Firxt/static/css/main.0353044c.css.map",
+    "main.630450b4.js.map": "/Firxt/static/js/main.630450b4.js.map",
     "787.21c3f140.chunk.js.map": "/Firxt/static/js/787.21c3f140.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.97fb3016.css",
-    "static/js/main.b2a3c9c7.js"
+    "static/css/main.0353044c.css",
+    "static/js/main.630450b4.js"
   ]
 }
