@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Firxt/static/css/main.3ce1f5e9.css",
-    "main.js": "/Firxt/static/js/main.417d2935.js",
+    "main.css": "/Firxt/static/css/main.7a48e64c.css",
+    "main.js": "/Firxt/static/js/main.5a1ed5b1.js",
     "static/js/787.21c3f140.chunk.js": "/Firxt/static/js/787.21c3f140.chunk.js",
     "static/media/celeb.png": "/Firxt/static/media/celeb.b7ea4e06228f18d47476.png",
     "static/media/money2.png": "/Firxt/static/media/money2.ff879b4af27a6960bf9c.png",
@@ -30,12 +30,12 @@
     "static/media/orange.png": "/Firxt/static/media/orange.4126d8fce1d9bc4dfa1a.png",
     "static/media/bg18.png": "/Firxt/static/media/bg18.7fe45cfcee5117345941.png",
     "index.html": "/Firxt/index.html",
-    "main.3ce1f5e9.css.map": "/Firxt/static/css/main.3ce1f5e9.css.map",
-    "main.417d2935.js.map": "/Firxt/static/js/main.417d2935.js.map",
+    "main.7a48e64c.css.map": "/Firxt/static/css/main.7a48e64c.css.map",
+    "main.5a1ed5b1.js.map": "/Firxt/static/js/main.5a1ed5b1.js.map",
     "787.21c3f140.chunk.js.map": "/Firxt/static/js/787.21c3f140.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3ce1f5e9.css",
-    "static/js/main.417d2935.js"
+    "static/css/main.7a48e64c.css",
+    "static/js/main.5a1ed5b1.js"
   ]
 }
