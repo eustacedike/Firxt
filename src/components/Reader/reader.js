@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import './reader.css';
 
-import { FaExclamationCircle, FaChevronRight, FaClock, FaCalendarAlt, FaBook, FaRegThumbsUp, FaRegThumbsDown, FaBookmark } from 'react-icons/fa';
+import { FaExclamationCircle, FaChevronRight, FaClock, FaCalendarAlt, FaBook, FaThumbsUp, FaThumbsDown, FaBookmark } from 'react-icons/fa';
 
 
 
@@ -60,8 +60,8 @@ function Reader() {
             <div className="cat-act">
                 <button>{thisPost.category}</button>
                 <div className="post-actions">
-                    <p>{126} <FaRegThumbsUp /></p>
-                    <p>{7}<FaRegThumbsDown /></p>
+                    <p>{126} <FaThumbsUp /></p>
+                    <p>{7}<FaThumbsDown /></p>
                     <p><FaBookmark /></p>
                     <p><FaExclamationCircle /></p>
                 </div>

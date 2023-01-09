@@ -38,12 +38,19 @@ function Topics() {
         textDecoration: "none",
       }
 
+      const takeUp = () => {
+        window.scroll(0,0)
+      }
+    
+
      const sorted = Object.keys(categories.cats)
     .sort()
     .reduce(function (acc, key) { 
         acc[key] = categories.cats[key];
         return acc;
     }, {});
+
+    
   return (
     <div className="Topics">
    <div className='topic-hero'>
@@ -59,7 +66,7 @@ function Topics() {
       Object.keys(sorted).map(key =>
           <Link
           className='topic'
-          onClick={()=>{window.scroll(0,0)}}
+          onClick={takeUp}
           to={`/blog/${sorted[key].name}`}
           style={linkStyle}>
             <img src={TopicImages[sorted[key].id-1]}/>
@@ -75,7 +82,7 @@ function Topics() {
 
     {categories.tags.map(tag => {
           return (
-            <button> <Link to="/" style={linkStyle}>#{tag}</Link></button>
+            <button> <Link onClick={takeUp} to="/" style={linkStyle}>#{tag}</Link></button>
           )
         })}
     </div>

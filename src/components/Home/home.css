@@ -186,9 +186,9 @@
 }
 
 .post-actions p:hover {
-    transform: scale(1.2);
+    transform: scale(1.06);
     color: red;
-    transition: .3s;
+    transition: 0s;
 }
 
 .more {

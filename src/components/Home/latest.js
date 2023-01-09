@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import './home.css';
 
-import { FaExclamationCircle, FaChevronRight, FaClock, FaCalendarAlt, FaBook, FaRegThumbsUp, FaRegThumbsDown, FaBookmark } from 'react-icons/fa';
+import { FaExclamationCircle, FaChevronRight, FaClock, FaCalendarAlt, FaBook, FaThumbsUp, FaThumbsDown, FaBookmark } from 'react-icons/fa';
 
 
 
@@ -28,6 +28,14 @@ function Latest() {
     color: "unset"
   }
 
+  const takeUp = () => {
+    window.scroll(0,0)
+  };
+
+
+
+
+
   return (
     <div className="Latest">
       <h1><FaClock style={{verticalAlign: "-4.5px"}}/> LATEST POSTS</h1>
@@ -38,7 +46,7 @@ function Latest() {
         {posts.map(eachPost => {
           return (
             <div className="post">
-              <Link to="/blog" style={linkStyle}>
+              <Link onClick={takeUp} to="/blog" style={linkStyle}>
           <h3>{eachPost.title}</h3> <br />
           <p>
             <FaBook /> {eachPost.post.substring(0,200)}...</p>
@@ -56,8 +64,8 @@ function Latest() {
             <div className="cat-act">
               <button>{eachPost.category}</button>
           <div className="post-actions">
-            <p><FaRegThumbsUp /></p>
-            <p><FaRegThumbsDown /></p>
+            <p><FaThumbsUp /></p>
+            <p><FaThumbsDown /></p>
             <p><FaBookmark /></p>
             <p><FaExclamationCircle /></p>
           </div>
@@ -69,7 +77,7 @@ function Latest() {
       </div>
 
       <button className="more">
-      <Link to="/blogposts" style={linkStyle}> Latest Posts <FaChevronRight style={{verticalAlign: "-2.5px", marginLeft: "10px"}}/> </Link>
+      <Link onClick={takeUp} to="/blogposts" style={linkStyle}> Latest Posts <FaChevronRight style={{verticalAlign: "-2.5px", marginLeft: "10px"}}/> </Link>
       </button> <br /> <br /> <br />
 
       <hr></hr>

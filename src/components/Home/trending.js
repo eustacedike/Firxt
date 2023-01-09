@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import './home.css';
 
-import { FaChevronRight, FaBolt, FaClock, FaCalendarAlt, FaExclamationCircle, FaBook, FaRegThumbsUp, FaRegThumbsDown, FaBookmark } from 'react-icons/fa';
+import { FaChevronRight, FaBolt, FaClock, FaCalendarAlt, FaExclamationCircle, FaBook, FaThumbsUp, FaThumbsDown, FaBookmark } from 'react-icons/fa';
 import {ImFire} from 'react-icons/im';
 
 
@@ -28,6 +28,10 @@ function Trending() {
     color: "unset"
   }
 
+  const takeUp = () => {
+    window.scroll(0,0)
+  };
+
   return (
     <div className="Latest">
       <h1><ImFire /> TRENDING POSTS</h1>
@@ -38,7 +42,7 @@ function Trending() {
         {posts.map(eachPost => {
           return (
             <div className="post">
-              <Link to="/blog" style={linkStyle}>
+              <Link onClick={takeUp} to="/blog" style={linkStyle}>
           <h3>{eachPost.title}</h3> <br />
           <p>
             <FaBook /> {eachPost.post.substring(0,200)}...</p>
@@ -56,8 +60,8 @@ function Trending() {
             <div className="cat-act">
               <button>{eachPost.category}</button>
           <div className="post-actions">
-            <p><FaRegThumbsUp /></p>
-            <p><FaRegThumbsDown /></p>
+            <p><FaThumbsUp /></p>
+            <p><FaThumbsDown /></p>
             <p><FaBookmark /></p>
             <p><FaExclamationCircle /></p>
           </div>
@@ -69,7 +73,7 @@ function Trending() {
       </div>
 
       <button className="more">
-      <Link to="/trending" style={linkStyle}>Trending Posts <FaChevronRight style={{verticalAlign: "-2.5px", marginLeft: "10px"}}/> </Link>
+      <Link onClick={takeUp} to="/trending" style={linkStyle}>Trending Posts <FaChevronRight style={{verticalAlign: "-2.5px", marginLeft: "10px"}}/> </Link>
       </button>
     </div>
   );

@@ -41,6 +41,10 @@ function Explore() {
   const sliced = Object.fromEntries(
     Object.entries(categories.cats).slice(0, 15));
 
+    const takeUp = () => {
+      window.scroll(0,0)
+    }
+
   return (
     <div className="Explore">
       {/* <h1>{categories.cats.Automobiles.name}</h1> */}
@@ -57,7 +61,7 @@ function Explore() {
 
       {
       Object.keys(sliced).map(key =>
-        <button> <Link onClick={()=>{window.scroll(0,0)}} to={`/blog/${categories.cats[key].name}`} style={linkStyle}>{categories.cats[key].name}</Link></button>)
+        <button> <Link onClick={takeUp} to={`/blog/${categories.cats[key].name}`} style={linkStyle}>{categories.cats[key].name}</Link></button>)
     }
       
         
@@ -69,13 +73,13 @@ function Explore() {
 
         
       </div>
-<Link to="/categories">Explore all categories</Link>
+<Link onClick={takeUp} to="/categories">Explore all categories</Link>
       <h2><FaHashtag/> Tags</h2> 
       <div className="xplore-cats">
         
         {categories.tags.map(tag => {
           return (
-            <button> <Link to="/" style={linkStyle}>#{tag}</Link></button>
+            <button> <Link onClick={takeUp} to="/" style={linkStyle}>#{tag}</Link></button>
           )
         })}
 
@@ -83,7 +87,7 @@ function Explore() {
         
 
       </div>
-      <Link to="/categories">check out more tags</Link>
+      <Link onClick={takeUp} to="/categories">check out more tags</Link>
 </div>
     
   );

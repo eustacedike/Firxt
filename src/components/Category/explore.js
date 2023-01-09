@@ -32,7 +32,9 @@ function Explore() {
 
   // const users = ["Automobiles", "Phones", "Movies", "Music", "Books", "Celebrity", "Sports", "Finance", "Crypto", "Tech", "Food"]
   // const tags = ["twitter", "lagos", "election", "workout", "ronaldo", "burnaboy", "japa", "drake", "sales", "newyear"]
-
+  const takeUp = () => {
+    window.scroll(0,0)
+  }
 
   const linkStyle = {
     textDecoration: "none",
@@ -50,7 +52,7 @@ function Explore() {
 
         {posts.map(user => {
           return (
-            <button className='pUsers'> <Link to="/" style={linkStyle}><img src={user.authordp}></img>{user.author}</Link></button>
+            <button className='pUsers'> <Link to="/" onClick={takeUp} style={linkStyle}><img src={user.authordp}></img>{user.author}</Link></button>
           )
         })}
       
@@ -63,11 +65,11 @@ function Explore() {
 
       {
       Object.keys(sliced).map(key =>
-        <button> <Link onClick={()=>{window.scroll(0,0)}} to={`/blog/${categories.cats[key].name}`} style={linkStyle}>{categories.cats[key].name}</Link></button>)
+        <button> <Link onClick={takeUp} to={`/blog/${categories.cats[key].name}`} style={linkStyle}>{categories.cats[key].name}</Link></button>)
     }
 
       </div> <br/>
-<Link to="/categories">View all categories</Link>
+<Link onClick={takeUp} to="/categories">View all categories</Link>
 
 
 

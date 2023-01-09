@@ -18,7 +18,7 @@ function Home() {
 
 
  window.onscroll = () => {
-    if (window.pageYOffset > 530) {
+    if (window.pageYOffset > 578) {
       setXplore(true)
     } else {
       setXplore(false)
@@ -27,7 +27,7 @@ function Home() {
 
   return (
     <div className="Home">
-      <div className="big-hero" on>
+      <div className="big-hero">
         <Hero/>
       </div>
       
@@ -40,7 +40,7 @@ function Home() {
         
       </div>
       <div className="xplore"
-      style={{position: xplore? "fixed" : "", top: xplore? "62px" : ""}}
+      style={{position: xplore? "fixed" : "", top: xplore? "15px" : ""}}
       >
           <Explore/>
         </div>

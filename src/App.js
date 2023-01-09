@@ -12,6 +12,8 @@ import Reader from "./components/Reader/reader";
 import AllPosts from "./components/AllPosts/allposts";
 import Category from "./components/Category/category";
 import Topics from "./components/Topics/topics";
+import Dashboard from "./components/Dashboard/dashboard";
+import OtherUser from "./components/Dashboard/otheruser";
 
 import './App.css';
 
@@ -53,7 +55,8 @@ function App() {
 
 
             <Route path="categories" element={<Topics />} />
-            {/* <Route path="categories" element={<Category />} /> */}
+            <Route path="profile" element={<Dashboard />} />
+            <Route path="profile/salt-bae" element={<OtherUser />} />
             <Route path="blogposts" element={<AllPosts icon={<FaClock />} latestOrtrending="RECENT POSTS" sub="Check out the most recent blogs on Firxt.." />} />
             <Route path="trending" element={<AllPosts icon={<ImFire />} latestOrtrending="TRENDING NOW" sub="Hot topics right now..." />} />
 

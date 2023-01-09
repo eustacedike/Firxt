@@ -28,6 +28,10 @@ function AllPosts(props) {
     color: "unset"
   }
 
+  const takeUp = () => {
+    window.scroll(0,0)
+  }
+
   return (
     <div className="Allposts">
       
@@ -53,7 +57,7 @@ function AllPosts(props) {
         {posts.map(eachPost => {
           return (
             <div className="post">
-              <Link to="/" style={linkStyle}>
+              <Link onClick={takeUp} to="/" style={linkStyle}>
           <h3>{eachPost.title}</h3> <br />
           <p>
             <FaBook /> {eachPost.post.substring(0,200)}...</p>
