@@ -88,6 +88,10 @@ header {
     display: none;
 }
 
+.search-result:hover {
+    display: block;
+}
+
 .search input:focus ~ .search-result {
     display: block;
 }

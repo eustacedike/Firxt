@@ -101,6 +101,7 @@
 .posts-section {
 
     background: linear-gradient(white 5%, rgb(255, 0, 0, 0));
+    min-height: 90vh;
 
 }
 

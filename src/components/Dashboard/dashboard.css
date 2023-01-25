@@ -23,6 +23,30 @@
     height: 140px;
     width: 140px;
     border-radius: 50%;
+    background-color: var(--primary);
+}
+
+.edit {
+    color: var(--primary);
+    background-color: white;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--primary);
+    /* position: fixed; */
+    /* left: 160px; */
+    margin-left: -70px;
+    cursor: pointer;
+}
+
+.edit:hover {
+    color: white;
+    background-color: var(--primary);
+    border: 1px solid white;
+   
 }
 
 .avatar h1 {
@@ -30,6 +54,65 @@
     font-family: 'Ubuntu', sans-serif;
     font-size: var(--h1-font);
     font-weight: 800;
+}
+
+.avatar input {
+    background-color: rgb(255,255,255,0.75);
+    border: 1px solid var(--primary);
+    padding: 4px;
+    border-radius: 3px;
+}
+
+.avatar button {
+    background-color: white;
+    font-weight: bold;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin-left: 15px;
+}
+
+.DP-preview {
+    width: 100vw;
+    position: fixed;
+    height: 90vh;
+    background-color: rgb(0, 0, 0, 0.9);
+    top: 60px;
+    left: 0;
+    transform: scale(0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+}
+
+.DP-preview img {
+    height: 80%;
+    width: 73vh;
+    max-width: 560px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 9px 2px white;
+    background-color: var(--primary);
+}
+
+.DP-preview div {
+    display: flex;
+    gap: 25px;
+    flex-direction: column;
+}
+
+.DP-preview button {
+    background-color: white;
+    font-weight: bold;
+    border: none;
+    padding: 10px 12px;
+    font-size: unset;
+    border-radius: 3px;
+}
+
+.procee {
+    background-color: var(--primary) !important;
+    color: white;
 }
 
 .Dashboard hr {
@@ -43,6 +126,22 @@
     /* font-family: 'Ubuntu', sans-serif; */
     font-size: var(--h3-font);
     /* font-weight: 800; */
+}
+
+.about-you textarea {
+    width: 100%;
+    background-color: rgb(255,255,255,0.75);
+    border: 1px solid var(--primary);
+    padding: 6px;
+}
+
+.about-you button {
+    background-color: white;
+    font-weight: bold;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 3px;
+    margin-right: 15px;
 }
 
 
@@ -207,6 +306,11 @@
         border-bottom: none;
     }
 
+    .odas {
+        justify-content: flex-start;
+        gap: 35px;
+    }
+
     .the-options button {
         width: 100%; 
     }
@@ -256,6 +360,43 @@
         border: 1px solid var(--primary);
 
     }
+
+    .DP-preview {
+       flex-direction: column;
+       gap: 20px;
+    }
+    
+    .DP-preview img {
+    width: 60%;
+    min-width: 250px;
+        height: 60vw;
+    }
+    
+    .DP-preview div {
+        display: flex;
+        gap: 20px;
+        flex-direction: row;
+    }
+    
+    .DP-preview button {
+        padding: 6px 10px;
+        font-size: smaller;
+        border-radius: 3px;
+    }
+}
+
+@media (max-width: 650px) {
+    
+    .avatar input {
+        display: block;
+    }
+
+        .avatar button {
+        padding: 5px 10px;
+        margin-left: 0px;
+        margin-right: 10px;
+        margin-top: 10px;
+    }
 }
 
 @media (max-width: 350px) {
@@ -272,5 +413,12 @@
 
     .avatar {
         font-size: smaller;
+    }
+
+    .edit {
+        height: 20px;
+        width: 20px;
+        margin-left: -60px;
+        font-size: 10px;
     }
 }

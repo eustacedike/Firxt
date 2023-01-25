@@ -70,7 +70,7 @@ const TopicImages = [motorPic, phonePic, moviePic, musicPic, bookPic, sportPic, 
       </div>
 
       <div className="posts-section">
-        <Latest />
+        <Latest thisCategory={props.desc}/>
 
     
 

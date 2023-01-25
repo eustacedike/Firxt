@@ -1,43 +1,20 @@
 
 
 import { useState } from "react";
+import { useCookies } from "react-cookie";
 import { Link } from "react-router-dom";
-import { FaTrash, FaSchool, FaAward, FaBook, FaBriefcase, FaCogs, FaGraduationCap, FaMagic, FaCalendarAlt, FaClock, FaThumbsUp, FaThumbsDown, FaBookmark, FaPenAlt, FaRecycle } from "react-icons/fa";
+import { FaTrash, FaSchool, FaAward, FaBook, FaBriefcase, FaCogs, FaGraduationCap, FaMagic, FaCalendarAlt, FaClock, FaThumbsUp, FaThumbsDown, FaBookmark, FaPenAlt, FaPen, FaRecycle } from "react-icons/fa";
+
+import axios from "axios";
+
 
 import "./dashboard.css";
-import dp from "./dp3.jpg";
+import dp from "./dp4.png";
 import badge from "./badge.png";
 
 
 import categories from "../categories.json";
 
-let today = new Date().getDay;
-// console.log(today);
-
-const you = {
-    title: "Mr",
-    firstname: "Eustace",
-    lastname: "Dike",
-    nationality: "Nigeria",
-    avatar: dp,
-    specialty: "Frontend Developer",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex commodi dolorem quasi dignissimos temporibus fugit adipisci voluptatibus esse aliquid quod! Exercitationem, facere aut. Voluptates, voluptatum animi quo incidunt aliquam fugiat perferendis ducimus maiores sunt, velit optio est vitae reiciendis molestias",
-    dob: "01/07/2023",
-    datejoined: "01/07/2023",
-    workplace: "Ace Ventures",
-    jobdesc: "Frontend Development using HTML, CSS, Javascript and React.",
-    skills: ["React", "Javascript", "HTML5", "CSS3"],
-    education: [{school: "Imo State University",
-                    degree: "Bachelor of Science",
-                    course: "Industrial Microbiology"
-},
-    {school: "University of Canada",
-                    degree: "Master of Science",
-                    course: "Computer Science"
-},
-
-]
-}
 
 
 
@@ -52,7 +29,107 @@ const posts = [
 
 function Dashboard() {
 
-    const [dashbox, setDashbox] = useState(4);
+    const [dashbox, setDashbox] = useState(0);
+
+    const [cookies, setCookie, removeCookie] = useCookies(['user']);
+
+
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    let theMonth = parseInt(cookies.JoinDate.slice(5, 7));
+    let myDate = `${months[theMonth - 1]} ${cookies.JoinDate.slice(8, 10)}, ${cookies.JoinDate.slice(0, 4)}`
+
+
+
+    const you = {
+        firstname: cookies.FirstName,
+        lastname: cookies.LastName,
+        nationality: "Nigeria",
+        avatar: cookies.ProfileImage,
+        specialty: "Your major..",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex commodi dolorem quasi dignissimos temporibus fugit adipisci voluptatibus esse aliquid quod! Exercitationem, facere aut. Voluptates, voluptatum animi quo incidunt aliquam fugiat perferendis ducimus maiores sunt, velit optio est vitae reiciendis molestias",
+        dob: "01/07/2023",
+        datejoined: myDate,
+        workplace: "Ace Ventures",
+        jobdesc: "Frontend Development using HTML, CSS, Javascript and React.",
+        skills: ["React", "Javascript", "HTML5", "CSS3"],
+        education: [{
+            school: "Imo State University",
+            degree: "Bachelor of Science",
+            course: "Industrial Microbiology"
+        },
+        {
+            school: "University of Canada",
+            degree: "Master of Science",
+            course: "Computer Science"
+        },
+
+        ]
+    }
+
+
+    const [image, setImage] = useState("");
+
+
+    const [preview, setPreview] = useState();
+    function imagePreview(e) {
+        console.log(e.target.files);
+        setPreview(URL.createObjectURL(e.target.files[0]));
+        setImage(e.target.files[0]);
+        document.getElementById('DP-preview').style.transform = "scale(1)"
+    }
+
+
+    const changeDP = async (e) => {
+
+        // e.preventDefault();
+
+
+        let imageUrl = "";
+
+        const instance = axios.create()
+
+        const data = new FormData()
+        data.append("file", image);
+        data.append("upload_preset", "eustaceuploads");
+        data.append("cloud_name", "djrdbht1u");
+
+        const res = await instance.post(
+            "https://api.cloudinary.com/v1_1/djrdbht1u/image/upload/",
+            data
+        )
+
+            .then((res) => {
+                console.log("response");
+                console.log(res);
+                imageUrl = res.data.url;
+            })
+            .catch((err) => console.log(err));
+
+
+        const mongoSend = await axios
+            .post("/api/users/changedp", { email: cookies.Email, image: imageUrl })
+            .then(res => {
+                // console.log(res);
+
+                // navigate(`/loading`);
+                // setTimeout(() => { navigate(`/post/${thePost.link}`) }, 2500);
+                setTimeout(() => { window.location.reload() }, 1500);
+            })
+            .catch(err => {
+                const errors = err.response.data;
+                console.log(err.response.data)
+            });
+
+
+
+
+    };
+
+
+    const [descInput, setDescInput] = useState(false);
+    const [briefInput, setBriefInput] = useState(false);
+
+
 
     const highlightStyle = {
         backgroundColor: "#4A0404",
@@ -76,15 +153,68 @@ function Dashboard() {
             <div className="dashboard-1">
                 <div className="avatar">
                     <img src={you.avatar} alt="" />
+                    <label
+                        className="edit"
+                        htmlFor="file"
+                    ><FaPen /></label>
+                    <input
+                        type="file"
+                        name="file"
+                        id="file"
+                        accept="image/*"
+                        style={{ display: "none" }}
+                        onChange={imagePreview}
+                    />
                     <div>
                         <h1>{you.firstname} {you.lastname}</h1>
-                        <i>{you.specialty}</i>
+                        <i>
+                        {briefInput? 
+                    
+                    <>
+                    <input
+                    type="text"
+                    onChange={()=>{}}
+                    />
+                    <button onClick={()=>{setBriefInput(false)}}>Cancel</button>
+                    <button className="procee">Proceed</button>
+                    </>: you.specialty  }
+                            <FaPen
+                            style={{display: briefInput? "none" : ""}}
+                            onClick={()=>{setBriefInput(true)}}
+                            /></i>
                     </div>
                 </div>
+                <div className="DP-preview" id="DP-preview">
+                    <img src={preview} />
+                    <div>
+                        <button
+                        onClick={()=>{document.getElementById('DP-preview').style.transform = "scale(0)"}}
+                        >Cancel</button>
+                        <button
+                        onClick={changeDP}
+                        className="procee">Proceed</button>
+                    </div>
+                    
+                    </div>
+
                 <br /> <hr /> <br />
                 <div className="about-you">
                     <h3>Description</h3>
-                    <p>{you.desc}</p>
+                    <p> {descInput? 
+                    
+                     <>
+                     <textarea
+                     value={you.desc}
+                     rows="8"
+                     onChange={()=>{}}
+                     ></textarea>
+                     <button onClick={()=>{setDescInput(false)}}>Cancel</button>
+                     <button className="procee">Proceed</button>
+                     </>: you.desc  }
+                    <i 
+                    style={{display: descInput? "none" : ""}}
+                    onClick={()=>{setDescInput(true)}}
+                    ><FaPen/></i></p> 
                 </div>
                 <br /> <hr /> <br />
                 <div className="profile-options">
@@ -100,11 +230,11 @@ function Dashboard() {
                             onClick={() => { setDashbox(1) }}>
                             Posts
                         </button> <hr />
-                        <button
+                        {/* <button
                             style={dashbox === 2 ? highlightStyle : null}
                             onClick={() => { setDashbox(2) }}>
                             Replies
-                        </button> <hr />
+                        </button> <hr /> */}
                         <button
                             style={dashbox === 3 ? highlightStyle : null}
                             onClick={() => { setDashbox(3) }}>
@@ -126,7 +256,6 @@ function Dashboard() {
                         <div className="your-profile"
                             style={{ display: dashbox !== 0 ? "none" : null }}
                         >
-                            <p><b>Title: </b>{you.title}</p>
                             <p><b>Name: </b>{you.firstname} {you.lastname}</p>
                             <p><b>Country: </b>{you.nationality}</p>
                             <p><b>Born: </b>{you.dob}</p>
@@ -172,11 +301,11 @@ function Dashboard() {
                         </div>
 
                         {/* REPLIES */}
-                        <div className="your-replies"
+                        {/* <div className="your-replies"
                             style={{ display: dashbox !== 2 ? "none" : null }}
                         >
                             YO' REPLies
-                        </div>
+                        </div> */}
 
                         {/* BOOKMARKS */}
                         <div className="your-posts"
@@ -263,44 +392,44 @@ function Dashboard() {
 
             <div className="dashboard-2">
                 <div className="creds">
-                    <h3><FaBriefcase/> Employment Credential</h3>
+                    <h3><FaBriefcase /> Employment Credential</h3>
                     <p><b>Job Title: </b>{you.specialty}</p>
                     <p><b>Employer: </b>{you.workplace}</p>
-                    <p><b>Job Description</b> <br/> {you.jobdesc}</p>
-                </div> 
-                <br />
-                <div className="creds">
-                    <h3><FaCogs/> Skills</h3>
-                   {
-                    you.skills.map(eachSkill =>{
-                        return (<button>{eachSkill}</button>)
-                    })
-                   }
+                    <p><b>Job Description</b> <br /> {you.jobdesc}</p>
                 </div>
                 <br />
                 <div className="creds">
-                    <h3><FaGraduationCap/> Education</h3>
+                    <h3><FaCogs /> Skills</h3>
                     {
-                    you.education.map(eachEducation =>{ 
-                   return     ( <>
+                        you.skills.map(eachSkill => {
+                            return (<button>{eachSkill}</button>)
+                        })
+                    }
+                </div>
+                <br />
+                <div className="creds">
+                    <h3><FaGraduationCap /> Education</h3>
+                    {
+                        you.education.map(eachEducation => {
+                            return (<>
 
-                   <h4><FaAward/> {eachEducation.degree} </h4>
-                   <p><FaBook/> {eachEducation.course}</p>
-                   <p><FaSchool/> {eachEducation.school}</p> <br />
-                   </>
-                   )
-                        
-                    })
-                   }
+                                <h4><FaAward /> {eachEducation.degree} </h4>
+                                <p><FaBook /> {eachEducation.course}</p>
+                                <p><FaSchool /> {eachEducation.school}</p> <br />
+                            </>
+                            )
+
+                        })
+                    }
 
                 </div> <br />
 
                 <div className="creds">
-                    <h3><FaMagic/> Interests</h3>
+                    <h3><FaMagic /> Interests</h3>
                     {
-      Object.keys(sliced).map(key =>
-        <button> <Link onClick={takeUp} to={`/blog/${categories.cats[key].name}`} style={linkStyle}>{categories.cats[key].name}</Link></button>)
-    }
+                        Object.keys(sliced).map(key =>
+                            <button> <Link onClick={takeUp} to={`/blog/${categories.cats[key].name}`} style={linkStyle}>{categories.cats[key].name}</Link></button>)
+                    }
                 </div>
             </div>
 

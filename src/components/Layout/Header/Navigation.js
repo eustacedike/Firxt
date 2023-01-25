@@ -5,6 +5,10 @@ import { useState, useEffect } from 'react';
 
 import { Link, useLocation } from 'react-router-dom';
 
+import { useCookies } from 'react-cookie';
+
+import axios from 'axios';
+
 
 import { FaBolt, FaChevronDown, FaSearch, FaPenFancy, FaClock, FaUser } from 'react-icons/fa';
 import { ImFire } from 'react-icons/im';
@@ -78,6 +82,37 @@ function Navigation() {
 
 
 
+  const setAuthToken = token => {
+    if (token) {
+      // Apply authorization token to every request if logged in
+      axios.defaults.headers.common["Authorization"] = token;
+    } else {
+      // Delete auth header
+      delete axios.defaults.headers.common["Authorization"];
+    }
+  };
+
+  //   Log user out
+const logoutUser = () => {
+  // Remove token from local storage
+  localStorage.removeItem("jwtToken");
+  // Remove auth header for future requests
+  setAuthToken(false);
+  // Set current user to empty object {} which will set isAuthenticated to false
+  setCookie('isAuthenticated', false, { path: '/' });
+  removeCookie('FirstName', { path: '/' });
+  removeCookie('LastName', { path: '/' });
+  removeCookie('Email', { path: '/' });
+  removeCookie('Role', { path: '/' });
+  window.location.reload();
+  };
+
+
+  const [cookies, setCookie, removeCookie] = useCookies(['user']);
+  const isAuthenticated = (cookies.isAuthenticated === 'true');
+
+
+
   const sliced = Object.fromEntries(
     Object.entries(categories.cats).slice(0, 8));
 
@@ -95,6 +130,7 @@ function Navigation() {
           location.pathname === "/trending" ? "Navigation nav-alt" :
             location.pathname === "/write" ? "Navigation nav-alt" :
               location.pathname === "/categories" ? "Navigation nav-alt2" :
+                location.pathname === "/loading" ? "Navigation nav-alt2" :
                 "Navigation"}
 
         style={{
@@ -132,9 +168,10 @@ function Navigation() {
 
           </ul>
           <div className="auth">
-            <Link onClick={takeUp} to="/profile" style={linkStyle}><button><FaUser/></button></Link>
-            <Link onClick={takeUp} to="/login" style={linkStyle}><button>Login</button></Link>
-            <Link onClick={takeUp} to="/register" style={linkStyle}><button>Sign Up</button></Link>
+            <Link onClick={takeUp} to="/profile" style={linkStyle}><button style={{display: isAuthenticated? "" : "none"}}><FaUser/></button></Link>
+            <Link onClick={takeUp} to="/login" style={linkStyle}><button style={{display: isAuthenticated? "none" : ""}}>Login</button></Link>
+            <Link onClick={takeUp} to="/register" style={linkStyle}><button style={{display: isAuthenticated? "none" : ""}}>Sign Up</button></Link>
+            <button onClick={logoutUser} style={{display: isAuthenticated? "" : "none"}}>Log Out</button>
           </div>
           <div className="search">
             <input
@@ -180,9 +217,10 @@ function Navigation() {
 
         </ul>
         <div>
-          <Link onClick={takeUp} to="/profile" style={linkStyle}><button><FaUser/></button></Link> <br />
-          <Link onClick={takeUp} to="/login" style={linkStyle}><button>Login</button></Link> <br />
-          <Link onClick={takeUp} to="/register" style={linkStyle}><button>Sign Up</button></Link>
+        <Link onClick={takeUp} to="/profile" style={linkStyle}><button style={{display: isAuthenticated? "" : "none"}}><FaUser/></button></Link>  <br/>
+            <Link onClick={takeUp} to="/login" style={linkStyle}><button style={{display: isAuthenticated? "none" : ""}}>Login</button></Link>
+            <Link onClick={takeUp} to="/register" style={linkStyle}><button style={{display: isAuthenticated? "none" : ""}}>Sign Up</button></Link>
+            <button onClick={logoutUser} style={{display: isAuthenticated? "" : "none"}}>Log Out</button>
         </div>
 
       </div>

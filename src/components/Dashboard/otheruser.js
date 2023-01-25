@@ -11,33 +11,9 @@ import badge from "./badge.png";
 
 import categories from "../categories.json";
 
-let today = new Date().getDay;
-// console.log(today);
 
-const you = {
-    title: "Mr",
-    firstname: "Salt",
-    lastname: "Bae",
-    nationality: "Turkey",
-    avatar: dp,
-    specialty: "Celebrity Chef",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex commodi dolorem quasi dignissimos temporibus fugit adipisci voluptatibus esse aliquid quod! Exercitationem, facere aut. Voluptates, voluptatum animi quo incidunt aliquam fugiat perferendis ducimus maiores sunt, velit optio est vitae reiciendis molestias",
-    dob: "01/07/2023",
-    datejoined: "11/07/2023",
-    workplace: "Salt Bae",
-    jobdesc: "nothing special",
-    skills: ["Grilling", "Cooking", "Barbeque"],
-    education: [{school: "Imo State University",
-                    degree: "Bachelor of Science",
-                    course: "Industrial Microbiology"
-},
-    {school: "University of Canada",
-                    degree: "Master of Science",
-                    course: "Computer Science"
-},
 
-]
-}
+// 
 
 
 
@@ -50,7 +26,39 @@ const posts = [
 ]
 
 
-function OtherUser() {
+function OtherUser(props) {
+
+
+    const months = ["Jan","Feb","Mar","Apr","May","June","Jul","Aug","Sep","Oct","Nov","Dec"]
+    let theMonth = parseInt(props.date.slice(5,7));
+    let myDate = `${months[theMonth-1]} ${props.date.slice(8,10)}, ${props.date.slice(0,4)}`
+
+
+    const you = {
+        title: "Mr",
+        firstname: props.firstname,
+        lastname: props.lastname,
+        nationality: props.country,
+        avatar: dp,
+        specialty: props.specialty,
+        desc: props.about,
+        dob: "01/07/2023",
+        datejoined: myDate,
+        workplace: "Salt Bae",
+        jobdesc: "nothing special",
+        skills: ["Grilling", "Cooking", "Barbeque"],
+        education: [{school: "Imo State University",
+                        degree: "Bachelor of Science",
+                        course: "Industrial Microbiology"
+    },
+        {school: "University of Canada",
+                        degree: "Master of Science",
+                        course: "Computer Science"
+    },
+    
+    ]
+    }
+    
 
     const [dashbox, setDashbox] = useState(0);
 
@@ -88,7 +96,7 @@ function OtherUser() {
                 </div>
                 <br /> <hr /> <br />
                 <div className="profile-options">
-                    <div className="the-options">
+                    <div className="the-options odas">
 
                         <button
                             style={dashbox === 0 ? highlightStyle : null}
